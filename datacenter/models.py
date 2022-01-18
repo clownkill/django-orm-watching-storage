@@ -40,3 +40,11 @@ class Visit(models.Model):
             return visit_seconds.total_seconds() // 60 > minutes
         visit_time = self.leaved_at - self.entered_at
         return visit_time.total_seconds() // 60 > minutes
+
+
+def format_duration(duration):
+    from datetime import timedelta
+
+    total_seconds = duration.total_seconds()
+    time_format = str(timedelta(seconds=total_seconds))
+    return time_format.split('.')[0]

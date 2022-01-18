@@ -1,14 +1,6 @@
 from datacenter.models import Passcard
-from datacenter.models import Visit
+from datacenter.models import Visit, format_duration
 from django.shortcuts import render
-
-
-def format_duration(duration):
-    from datetime import timedelta
-
-    total_seconds = duration.total_seconds()
-    time_format = str(timedelta(seconds=total_seconds))
-    return time_format.split('.')[0]
 
 
 def passcard_info_view(request, passcode):
