@@ -28,9 +28,9 @@ class Visit(models.Model):
         )
 
     def get_duration(self):
-        en_time = localtime(self.entered_at)
-        cur_time = now()
-        delta = cur_time - en_time
+        entered_time = localtime(self.entered_at)
+        current_time = now()
+        delta = current_time - entered_time
         return delta
 
     def is_visit_long(self, minutes=60):

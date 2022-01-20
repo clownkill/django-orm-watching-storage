@@ -6,9 +6,9 @@ from django.shortcuts import render
 def passcard_info_view(request, passcode):
     passcard = Passcard.objects.get(passcode=passcode)
     this_passcard_visits = []
-    passcard_all_visits = Visit.objects.filter(passcard=passcard)
-    for visit in passcard_all_visits:
-        en_time = visit.entered_at
+    passcard_visits = Visit.objects.filter(passcard=passcard)
+    for visit in passcard_visits:
+        entered_time = visit.entered_at
         if not visit.leaved_at:
             duration = visit.get_duration()
         elif visit.leaved_at:
@@ -17,7 +17,7 @@ def passcard_info_view(request, passcode):
         is_strange = visit.is_visit_long()
         this_passcard_visits.append(
             {
-                'entered_at': en_time,
+                'entered_at': entered_time,
                 'duration': formated_duration,
                 'is_strange': is_strange
             },

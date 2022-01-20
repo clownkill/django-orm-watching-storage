@@ -11,11 +11,11 @@ def storage_information_view(request):
         duration = visit.get_duration()
         formated_duration = format_duration(duration)
         who_entered = visit.passcard
-        en_time = localtime(visit.entered_at)
+        entered_time = localtime(visit.entered_at)
         non_closed_visits.append(
             {
                 'who_entered': who_entered,
-                'entered_at': en_time,
+                'entered_at': entered_time,
                 'duration': formated_duration,
             }
         )
