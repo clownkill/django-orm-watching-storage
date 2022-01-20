@@ -30,15 +30,15 @@ class Visit(models.Model):
 
     def get_duration(self):
         entered_time = localtime(self.entered_at)
-        current_time = now()
-        delta = current_time - entered_time
+        leaved_time = localtime(self.leaved_at)
+        if not self.leaved_at:
+            current_time = now()
+            delta = current_time - entered_time
+        delta = leaved_time - entered_time
         return delta
 
     def is_visit_long(self, minutes=60):
-        if not self.leaved_at:
-            visit_seconds = self.get_duration()
-            return visit_seconds.total_seconds() // 60 > minutes
-        visit_time = self.leaved_at - self.entered_at
+        visit_time = self.get_duration()
         return visit_time.total_seconds() // 60 > minutes
 
 
