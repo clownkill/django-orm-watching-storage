@@ -1,3 +1,4 @@
+from datetime import timedelta
 from django.db import models
 from django.utils.timezone import localtime, now
 
@@ -42,8 +43,6 @@ class Visit(models.Model):
 
 
 def format_duration(duration):
-    from datetime import timedelta
-
     total_seconds = duration.total_seconds()
     time_format = str(timedelta(seconds=total_seconds))
     return time_format.split('.')[0]
