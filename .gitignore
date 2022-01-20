@@ -3,3 +3,6 @@
 venv/
 venv/*
 .env
+.replit
+poetry.lock
+pyproject.toml
