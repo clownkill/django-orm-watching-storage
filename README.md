@@ -13,7 +13,7 @@ git clone https://github.com/clownkill/django-orm-watching-storage
 ```
 python -m venv env
 ```
-Для активации виртуального окружения необходимо, находясь в каталоге с `main.py`, выполнить:
+Для активации виртуального окружения необходимо, находясь в каталоге с `manage.py`, выполнить:
 ```
 env\scripts\activate
 ```
